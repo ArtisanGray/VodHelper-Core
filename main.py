@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""VodHelper 0.1"""
+"""VodHelper 0.1.1"""
 import sys
 import requests
 import time
@@ -9,7 +9,7 @@ import datetime
 import random
 
 def createTStamps(headers, vod_id, id, date, end_date):
-  clip_url = "https://api.twitch.tv/helix/clips?broadcaster_id={}&started_at={}&ended_at={}&first=25".format(id, date, end_date)
+  clip_url = "https://api.twitch.tv/helix/clips?broadcaster_id={}&started_at={}&ended_at={}&first=30".format(id, date, end_date)
   clip_req = requests.get(url=clip_url, headers=headers)
   clip_data = clip_req.json()
   clip_list = []
@@ -35,10 +35,11 @@ def createFile(str_list, stream_title, stream_date):
     f.write("Notation: <title of clip>: <start_time> ------>> <end_time>\nTimestamps directly related to the location the clip is in the VOD.\n\n")
     f.write("\n\t")
     for item in str_list:
-      f.write("{}\n\t".format(item))
+      if stream_title not in item:
+        f.write("{}\n\t".format(item))
     f.write("\n--------------------File Created [{}]--------------------\n".format((datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')))
     f.write("\n VodHelper Created by ArtisanGray (Eli Greene) ----- https://github.com/ArtisanGray")
-    f.write("\nThank you for using my program!")
+    f.write("\nThank you for using my program!\n")
   f.close()
   return
 
