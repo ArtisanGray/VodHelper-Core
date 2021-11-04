@@ -8,6 +8,7 @@ VodHelper was created by Eli Greene.
 ### Here are some links that are relevant to the project:
 
 [LinkedIn Profile](https://www.linkedin.com/in/artisangray/)
+
 [Project Blog](https://www.linkedin.com/pulse/vodhelper-save-yourself-some-time-ethan-eli-greene)
 
 
